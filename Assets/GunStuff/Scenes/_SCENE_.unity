@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 339406440}
   - component: {fileID: 339406439}
   - component: {fileID: 339406442}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Emission Chamber
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -287,74 +287,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 1204802993240422, guid: f94a5edeadea4ab4bb9d0a9a94fed9ac, type: 2}
---- !u!1 &481834987
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 481834988}
-  - component: {fileID: 481834990}
-  - component: {fileID: 481834989}
-  m_Layer: 5
-  m_Name: Scope
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &481834988
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 481834987}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 819670243}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -25}
-  m_SizeDelta: {x: 8, y: 8}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &481834989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 481834987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.478}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &481834990
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 481834987}
 --- !u!1001 &758670083
 Prefab:
   m_ObjectHideFlags: 0
@@ -438,38 +370,6 @@ Prefab:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
-    - target: {fileID: 100000, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100010, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100014, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100002, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100008, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100012, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100004, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 100006, guid: 08b166cf97770514c97781808668e853, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08b166cf97770514c97781808668e853, type: 3}
   m_IsPrefabParent: 0
@@ -488,7 +388,7 @@ GameObject:
   - component: {fileID: 793820060}
   - component: {fileID: 793820059}
   - component: {fileID: 793820058}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: ScopeCamera
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -644,8 +544,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 37972565}
-  - {fileID: 481834988}
-  - {fileID: 1937419096}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -671,8 +569,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   defCam: {fileID: 1733813923}
   scopeCam: {fileID: 793820060}
-  hipScope: {fileID: 1937419097}
-  scope: {fileID: 481834989}
   scopeCams:
   - {fileID: 793820060}
 --- !u!114 &938935467
@@ -686,16 +582,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349af42f84a7c804e8ca1a917d2b25fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammo: 60
+  ammo: 200
   reloadWhileScoped: 0
   reloadTimer: 0
-  minRecoil: 0
-  maxRecoil: 0
+  minRecoil: 0.1
+  maxRecoil: 0.5
   cameraShakeIntensity: 0
-  cameraShakeAmount: 0
-  spread: 0
-  originalCooldown: 0.05
-  amount: 1
+  cameraShakeAmount: 500
+  spread: 0.001
+  cooldown: 0.05
+  amount: 0
   useCooldown: 1
   semiAuto: 0
   particleSystemArray:
@@ -1094,7 +990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1649836326}
   - component: {fileID: 1649836327}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point light
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -1161,7 +1057,7 @@ GameObject:
   - component: {fileID: 1733813923}
   - component: {fileID: 1733813922}
   - component: {fileID: 1733813924}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Main Camera
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -1175,7 +1071,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1733813919}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0.02}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 758670084}
@@ -1253,7 +1149,7 @@ GameObject:
   - component: {fileID: 1903813893}
   - component: {fileID: 1903813892}
   - component: {fileID: 1903813896}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Person
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -1343,74 +1239,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!1 &1937419095
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1937419096}
-  - component: {fileID: 1937419098}
-  - component: {fileID: 1937419097}
-  m_Layer: 5
-  m_Name: HipScope
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1937419096
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1937419095}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 819670243}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 8, y: 8}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1937419097
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1937419095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -765806418, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.478}
-  m_RaycastTarget: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
-      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
---- !u!222 &1937419098
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1937419095}
 --- !u!1 &2016075327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1421,7 +1249,7 @@ GameObject:
   - component: {fileID: 2016075328}
   - component: {fileID: 2016075330}
   - component: {fileID: 2016075329}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Particle System
   m_TagString: Friendly
   m_Icon: {fileID: 0}
@@ -1556,7 +1384,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1448859020
+  randomSeed: -375096780
   InitialModule:
     serializedVersion: 3
     enabled: 1
