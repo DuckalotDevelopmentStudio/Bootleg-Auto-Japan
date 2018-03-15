@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GunController : MonoBehaviour {
+public class GunController : MonoBehaviour
+{
 
     //Customizable Variables
     [Header("Customizable Aspects")]
-    public int ammo = 200;
+    public int originalAmmo = 60;
     public bool reloadWhileScoped = false;
     public float reloadTimer;
     [Range(0, 0.1f)]
@@ -30,28 +31,42 @@ public class GunController : MonoBehaviour {
     CameraController cameraController;
     public Text ammoText;
     public GameObject emChamber;
+    public Image crosshair;
 
     //Local Variables
     Scope scope;
     bool reloading = false;
     float cooldown; //Saves original value of cooldown
+    int ammo = 200;
 
     //Global Variables
     [HideInInspector]
     public bool scoped = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start()
+    {
         scope = gameObject.GetComponent<Scope>();//Acheive scope script
         cameraController = mainCamera.GetComponent<CameraController>(); //Getting CameraController
         cooldown = originalCooldown;
-	}
+        ammo = originalAmmo;
+        ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
+    }
 
     // Update is called once per frame
-    void Update() {
+    void Update()
+    {
+        if (scoped)
+        {
+            crosshair.enabled = false;
+        }
+        else
+        {
+            crosshair.enabled = true;
+        }
         ScopeCheck(); //Checking for scope
         cooldown -= Time.deltaTime;
-        if (!useCooldown)
+        if (!useCooldown && amount > 0)
         {
             if (Input.GetMouseButton(0) && ammo > 0 && !reloading) //Check if it's suitable to shoot
             {
@@ -62,7 +77,7 @@ public class GunController : MonoBehaviour {
                 mainCamera.transform.eulerAngles = new Vector3(mainCamera.transform.eulerAngles.x, mainCamera.transform.eulerAngles.y, 0); //Reseting camera shake
             }
         }
-        else if(semiAuto)
+        else if (semiAuto && amount > 0)
         {
 
             if (Input.GetMouseButtonDown(0) && ammo > 0 && !reloading && cooldown < 0) //Check if it's suitable to shoot
@@ -73,7 +88,8 @@ public class GunController : MonoBehaviour {
             {
                 mainCamera.transform.eulerAngles = new Vector3(mainCamera.transform.eulerAngles.x, mainCamera.transform.eulerAngles.y, 0); //Reseting camera shake
             }
-        } else if(!semiAuto)
+        }
+        else if (!semiAuto && amount > 0)
         {
 
             if (Input.GetMouseButton(0) && ammo > 0 && !reloading && cooldown < 0) //Check if it's suitable to shoot
@@ -95,7 +111,8 @@ public class GunController : MonoBehaviour {
         {
             scope.ScopeIn();
             scoped = true;
-        }else 
+        }
+        else
         {
             scope.ScopeOut();
             scoped = false;
@@ -107,11 +124,12 @@ public class GunController : MonoBehaviour {
     {
         if (reloadWhileScoped) //Check if you can reload while scoped
         {
-            if (Input.GetKeyDown(KeyCode.R) || ammo == 0 && !reloading) 
+            if (Input.GetKeyDown(KeyCode.R) || ammo == 0 && !reloading)
             {
                 reloading = true;
             }
-        } else
+        }
+        else
         {
             if (Input.GetKeyDown(KeyCode.R) || ammo == 0 && !reloading && !scoped)
             {
@@ -120,17 +138,17 @@ public class GunController : MonoBehaviour {
 
         }
 
-        if(reloading)
+        if (reloading)
         {
             reloadTimer -= Time.deltaTime;
             ammoText.text = "Reloading...";
         }
-        if(reloadTimer<= 0)
+        if (reloadTimer <= 0)
         {
             reloadTimer = 1f;
             reloading = false;
-            ammo = 200;        //Reset everything
-            ammoText.text = ammo.ToString();
+            ammo = originalAmmo;        //Reset everything
+            ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
         }
     }
     public void Shoot()
@@ -141,7 +159,7 @@ public class GunController : MonoBehaviour {
         cameraController.rotationX += Random.Range(-minRecoil, minRecoil);
         mainCamera.transform.eulerAngles += new Vector3(0, 0, Random.Range(-cameraShakeAmount, cameraShakeAmount) * cameraShakeIntensity); //Camera shake, set intensity to 0
 
-        ammoText.text = ammo.ToString(); //Setting ammo UI text
+        ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
         cooldown = originalCooldown;
         particleSystemArray[0].Play();
     }
