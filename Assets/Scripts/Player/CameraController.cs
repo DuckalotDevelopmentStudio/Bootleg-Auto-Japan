@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.Networking;
 
 public class CameraController : MonoBehaviour {
 
@@ -26,14 +25,13 @@ public class CameraController : MonoBehaviour {
     private void Start()
     {
         player = GameObject.Find("Person");
-        mouse = GameObject.Find("Mouse");
         cam = GetComponent<Camera>();
         gunController = GameObject.Find("Gun").GetComponent<GunController>();
     }
     // Update is called once per frame
     void Update ()
     {
-        if (gunController.scoped == false)
+        if (!gunController.scoped)
         {
             rotationX += Input.GetAxis("Mouse X") * mouseSensX;
             rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
