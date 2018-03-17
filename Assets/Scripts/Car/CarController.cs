@@ -11,6 +11,7 @@ public class Wheel : System.Object
 {
     public WheelCollider collider;
     public GameObject mesh;
+    public ParticleSystem tireSmoke;
     public WheelPosition wheelPos;
 }
 
@@ -18,16 +19,22 @@ public class CarController : MonoBehaviour
 {
 
     public float maxMotorTorque;
+    public float maxBreakTorque;
     public float maxSteeringAngle;
     public float AntiRoll;
 
     public Wheel[] wheels;
+
+    public Transform com;
 
     private Rigidbody rb;
 
     public void Start()
     {
         rb = GetComponent<Rigidbody>();
+        if(com != null){
+            rb.centerOfMass = com.transform.localPosition;
+        }
     }
 
     public void VisualizeWheel(Wheel wheel)
@@ -43,7 +50,7 @@ public class CarController : MonoBehaviour
     {
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
         float steering = maxSteeringAngle * Input.GetAxis("Horizontal");
-        float breakTorque = Mathf.Abs(Input.GetAxis("Jump"));
+        float breakTorque = Mathf.Abs(Input.GetAxis("Jump")) * maxBreakTorque;
 
         if (breakTorque > 0.001)
         {
@@ -58,6 +65,8 @@ public class CarController : MonoBehaviour
         for(int i = 0; i < wheels.Length; i+=2){
             DoRollBar(wheels[i].collider, wheels[i+1].collider);
         }
+
+        DoTireSmoke();
 
         foreach (Wheel wheel in wheels)
         {
@@ -91,12 +100,31 @@ public class CarController : MonoBehaviour
 		float antiRollForce = (travelL - travelR) * AntiRoll;
 		
 		if (groundedL)
-			rb.AddForceAtPosition(WheelL.transform.up * -antiRollForce,
-			                             WheelL.transform.position); 
+			rb.AddForceAtPosition(WheelL.transform.up * -antiRollForce, WheelL.transform.position); 
 		if (groundedR)
-			rb.AddForceAtPosition(WheelR.transform.up * antiRollForce,
-			                             WheelR.transform.position); 
+			rb.AddForceAtPosition(WheelR.transform.up * antiRollForce, WheelR.transform.position); 
 	}
+
+    void DoTireSmoke(){
+        WheelHit hit = new WheelHit();
+        
+        foreach(Wheel wheel in wheels){
+
+            if(wheel.collider.GetGroundHit(out hit)){
+                if(
+				Mathf.Abs(hit.forwardSlip) >= wheel.collider.forwardFriction.extremumSlip*3 || 
+				Mathf.Abs(hit.sidewaysSlip) >= wheel.collider.sidewaysFriction.extremumSlip*3
+				) {
+                    wheel.tireSmoke.Play(false);
+                }else{
+                    wheel.tireSmoke.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+                }
+            }else{
+                wheel.tireSmoke.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            }
+        }
+
+    }
 
 
 }
