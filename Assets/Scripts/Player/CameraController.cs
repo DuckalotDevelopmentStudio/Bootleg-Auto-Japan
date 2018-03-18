@@ -12,6 +12,7 @@ public class CameraController : NetworkBehaviour {
     public float scopedSens = 5f;
     [Space]
     //Local Variables
+    bool gunControllerOnObject;
     GunController gunController;
     public GameObject player;
     GameObject mouse;
@@ -24,17 +25,23 @@ public class CameraController : NetworkBehaviour {
 
     public void Setup()
     {
-        gunController = GetComponent<GunController>();
+        if(GetComponent<GunController>())
+        {
+            gunController = GetComponent<GunController>();
+            gunControllerOnObject = true;
+
+        } else
+        {
+            gunControllerOnObject = false;
+        }
     }
     
     // Update is called once per frame
     void Update ()
     {
-        if (!gunController.scoped)
-        {
             rotationX += Input.GetAxis("Mouse X") * mouseSensX;
             rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
-        } else
+        if(gunControllerOnObject && gunController.scoped)
         {
             rotationX += Input.GetAxis("Mouse X") * scopedSens;
             rotationY -= Input.GetAxis("Mouse Y") * scopedSens;

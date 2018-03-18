@@ -156,7 +156,6 @@ public class GunController : NetworkBehaviour
 
         var bulletGO = (GameObject)Instantiate(bullet, emChamber.transform.position, Quaternion.identity);
         bulletGO.transform.eulerAngles = mainCamera.transform.eulerAngles;
-        Debug.Log(bulletGO.transform.eulerAngles);
         bulletGO.GetComponent<Rigidbody>().velocity = bulletGO.transform.forward * 12;
         NetworkServer.Spawn(bulletGO);
         Destroy(bulletGO, 2f);
