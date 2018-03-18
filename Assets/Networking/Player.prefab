@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   avatars:
-  - {fileID: 1226292368033274, guid: 561222e0529018d4caa066a3c769cb6b, type: 2}
+  - {fileID: 1681525702544718, guid: e24be6d02aff66b458b46c1020376f84, type: 2}
   - {fileID: 1091516701437278, guid: d0bc25cb70c1fda43a754c94b75395f7, type: 2}
   avatarColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!114 &114868672678135738

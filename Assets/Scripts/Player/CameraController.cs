@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class CameraController : MonoBehaviour {
+public class CameraController : NetworkBehaviour {
 
     [Header("Customizable Atrributes")]
     [Range(0f,25f)]
@@ -10,24 +10,23 @@ public class CameraController : MonoBehaviour {
     public float mouseSensY = 5f;
     [Range(0f, 25f)]
     public float scopedSens = 5f;
-
+    [Space]
     //Local Variables
     GunController gunController;
-    GameObject player;
+    public GameObject player;
     GameObject mouse;
-    Camera cam;
+    public Camera cam;
     //Global Inspectors
     [HideInInspector]
     public float rotationX = 0;
     [HideInInspector]
     public float rotationY = 0;
 
-    private void Start()
+    public void Setup()
     {
-        player = GameObject.Find("Person");
-        cam = GetComponent<Camera>();
-        gunController = GameObject.Find("Gun").GetComponent<GunController>();
+        gunController = GetComponent<GunController>();
     }
+    
     // Update is called once per frame
     void Update ()
     {
@@ -41,6 +40,7 @@ public class CameraController : MonoBehaviour {
             rotationY -= Input.GetAxis("Mouse Y") * scopedSens;
         }
         rotationY = Mathf.Clamp(rotationY, -60, 60);
-        transform.localRotation = Quaternion.Euler(rotationY,rotationX, transform.localRotation.z);
+        cam.transform.localRotation = Quaternion.Euler(rotationY,transform.localRotation.y, transform.localRotation.z);
+        player.transform.localRotation = Quaternion.Euler(player.transform.localRotation.x, rotationX, player.transform.localRotation.z);
     }
 }
