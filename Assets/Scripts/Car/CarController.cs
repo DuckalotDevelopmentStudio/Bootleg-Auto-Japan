@@ -35,15 +35,6 @@ public class CarController : MonoBehaviour
         }
     }
 
-    public void VisualizeWheel(Wheel wheel)
-    {
-        Quaternion rotation;
-        Vector3 position;
-        wheel.collider.GetWorldPose(out position, out rotation);
-        wheel.mesh.transform.position = position;
-        wheel.mesh.transform.rotation = rotation;
-    }
-
     public void FixedUpdate()
     {
         float motor = maxMotorTorque * Input.GetAxis("Vertical");
@@ -79,6 +70,15 @@ public class CarController : MonoBehaviour
 
             VisualizeWheel(wheel);
         }
+    }
+
+    public void VisualizeWheel(Wheel wheel)
+    {
+        Quaternion rotation;
+        Vector3 position;
+        wheel.collider.GetWorldPose(out position, out rotation);
+        wheel.mesh.transform.position = position;
+        wheel.mesh.transform.rotation = rotation;
     }
 
     void DoRollBar(WheelCollider WheelL, WheelCollider WheelR) {
@@ -123,5 +123,8 @@ public class CarController : MonoBehaviour
 
     }
 
+    void DestroyTire(Wheel wheel){
+        Debug.Log("Destroy wheel");
+    }
 
 }
