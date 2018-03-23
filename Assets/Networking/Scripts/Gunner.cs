@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Gunner : NetworkBehaviour {
+public class Gunner : MonoBehaviour {
 
     bool foundCar = false;
     bool foundGunner = false;
@@ -39,7 +39,7 @@ public class Gunner : NetworkBehaviour {
                     //GetComponent<NetworkTransformChild>().target = shooter.transform;
                     Debug.Log("Found Gunner");
                     transform.parent = shooter.transform;
-                    car.GetComponent<CarLoaded>().Setup();
+                    car.GetComponent<CarLoaded>().SetupCar();
                     transform.localPosition = Vector3.zero;
                 }
             }

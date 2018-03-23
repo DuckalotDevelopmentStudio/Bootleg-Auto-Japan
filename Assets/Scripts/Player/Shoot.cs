@@ -7,7 +7,7 @@ public class Shoot : NetworkBehaviour {
 
     public GameObject bullet; //Bullet prefab
 
-    /* public void TriggerPull(int amount, Transform emmisionTransform, ParticleSystem muzzleFlash,float spread)
+    public void TriggerPull(int amount, Transform emmisionTransform, ParticleSystem muzzleFlash,float spread)
      {
          for (int i = 0; i < amount; i++) //Repeats for amount of bullets
          {
@@ -20,6 +20,6 @@ public class Shoot : NetworkBehaviour {
              GameObject GO = Instantiate(bullet, pos, fireRotation);
              NetworkServer.Spawn(GO);
          }
-     }*/
+     }
      
 }

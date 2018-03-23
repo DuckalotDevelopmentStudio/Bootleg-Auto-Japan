@@ -14,6 +14,7 @@ public class SetupLocalPlay : NetworkBehaviour {
                 transform.position = new Vector3(0, 0, 0);
                 GetComponent<CarController>().enabled = true;
                 transform.GetChild(0).GetComponentInChildren<Camera>().enabled = true;
+                GetComponent<CameraController>().enabled = true;
 
             } else
             {

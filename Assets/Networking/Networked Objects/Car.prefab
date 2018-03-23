@@ -1498,7 +1498,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1207313624954600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: be842a27e46fc024aaf05eaffc94ccd4, type: 3}
   m_Name: 
@@ -1522,7 +1522,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMotorTorque: 4000
-  maxBreakTorque: 4
+  maxBreakTorque: 100
   maxSteeringAngle: 20
   AntiRoll: 20000
   wheels:

@@ -199,7 +199,6 @@ GameObject:
   - component: {fileID: 114375027340726576}
   - component: {fileID: 114190209994873176}
   - component: {fileID: 114552618223151266}
-  - component: {fileID: 114032977172655612}
   - component: {fileID: 114060031329065366}
   m_Layer: 8
   m_Name: Person
@@ -907,7 +906,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 94
   m_CollisionDetection: 0
 --- !u!65 &65041646076867346
 BoxCollider:
@@ -964,17 +963,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114032977172655612
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681525702544718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72a8dfcfa9ba9024ab46b63e7a5975da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114054010487848210
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1048,7 +1036,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681525702544718}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 349af42f84a7c804e8ca1a917d2b25fe, type: 3}
   m_Name: 

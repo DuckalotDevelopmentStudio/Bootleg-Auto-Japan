@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Networking;
 
-public class CameraController : NetworkBehaviour {
+public class CameraController : MonoBehaviour {
 
     [Header("Customizable Atrributes")]
     [Range(0f,25f)]
@@ -47,7 +47,8 @@ public class CameraController : NetworkBehaviour {
             rotationY -= Input.GetAxis("Mouse Y") * scopedSens;
         }
         rotationY = Mathf.Clamp(rotationY, -60, 60);
-        cam.transform.localRotation = Quaternion.Euler(rotationY,transform.localRotation.y, transform.localRotation.z);
-        player.transform.localRotation = Quaternion.Euler(player.transform.localRotation.x, rotationX, player.transform.localRotation.z);
+        cam.transform.localRotation = Quaternion.Euler(rotationY,0, 0);
+        player.transform.localRotation = Quaternion.Euler(0, rotationX, 0);
     }
+ 
 }
