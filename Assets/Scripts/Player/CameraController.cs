@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using UnityEngine.Networking;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class CameraController : MonoBehaviour {
 
@@ -10,11 +11,10 @@ public class CameraController : MonoBehaviour {
     public float mouseSensY = 5f;
     [Range(0f, 25f)]
     public float scopedSens = 5f;
-    [Space]
+
     //Local Variables
-    bool gunControllerOnObject;
     GunController gunController;
-    public GameObject player;
+    GameObject player;
     GameObject mouse;
     public Camera cam;
     //Global Inspectors
@@ -22,33 +22,37 @@ public class CameraController : MonoBehaviour {
     public float rotationX = 0;
     [HideInInspector]
     public float rotationY = 0;
+    bool gunControler;
 
-    public void Setup()
+    private void Start()
     {
-        if(GetComponent<GunController>())
+        player = GameObject.Find("Person");
+        gunController = GameObject.Find("Gun").GetComponent<GunController>();
+        if (gunController == null)
         {
-            gunController = GetComponent<GunController>();
-            gunControllerOnObject = true;
-
+            gunControler = false;
         } else
         {
-            gunControllerOnObject = false;
+            gunControler = true;
         }
     }
-    
     // Update is called once per frame
     void Update ()
     {
-            rotationX += Input.GetAxis("Mouse X") * mouseSensX;
-            rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
-        if(gunControllerOnObject && gunController.scoped)
+                rotationX += Input.GetAxis("Mouse X") * mouseSensX;
+                rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
+            
+        if(gunControler)
         {
-            rotationX += Input.GetAxis("Mouse X") * scopedSens;
-            rotationY -= Input.GetAxis("Mouse Y") * scopedSens;
+            if (gunController.scoped)
+            {
+                rotationX += Input.GetAxis("Mouse X") * scopedSens;
+                rotationY -= Input.GetAxis("Mouse Y") * scopedSens;
+            }
+            
         }
         rotationY = Mathf.Clamp(rotationY, -60, 60);
-        cam.transform.localRotation = Quaternion.Euler(rotationY,0, 0);
-        player.transform.localRotation = Quaternion.Euler(0, rotationX, 0);
+        cam.gameObject.transform.localRotation = Quaternion.Euler(cam.gameObject.transform.localRotation.x,rotationX, transform.localRotation.z);
+        gameObject.transform.localRotation = Quaternion.Euler(rotationY, transform.localRotation.y, transform.localRotation.z);
     }
- 
 }

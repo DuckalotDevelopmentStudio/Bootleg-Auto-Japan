@@ -9,16 +9,13 @@ public class CarLoaded : NetworkBehaviour {
     
     public void SetupCar()
     {
+
+        GameObject.Find("AIManager").GetComponent<CarManager>().Startup();
         Debug.Log("HELLO");
         for (int i = 0; i < transform.childCount; i++)
         {
             if(transform.GetChild(i).name == "Gunner")
             {
-
-                gameObject.AddComponent<NetworkTransformChild>().target = transform.GetChild(i).GetChild(0).GetChild(0);
-                gameObject.GetComponent<NetworkTransformChild>().interpolateRotation = 10f;
-                gameObject.AddComponent<NetworkTransformChild>().target = transform.GetChild(i).GetChild(0);
-                gameObject.AddComponent<NetworkTransformChild>().target = transform.GetChild(i).GetChild(0).GetChild(0).GetChild(0);
                 NetworkTransformChild[] ntc = new NetworkTransformChild[GetComponents<NetworkTransformChild>().Length];
                 ntc = GetComponents<NetworkTransformChild>();
                 for(int j = 0; j < GetComponents<NetworkTransformChild>().Length; j++)
@@ -28,7 +25,6 @@ public class CarLoaded : NetworkBehaviour {
                 
             }
         }
-        
         loaded = true;
 
         

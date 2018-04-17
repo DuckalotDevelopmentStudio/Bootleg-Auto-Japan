@@ -192,14 +192,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4998645825297090}
   - component: {fileID: 33680818009720962}
-  - component: {fileID: 136010177358013478}
   - component: {fileID: 23267422081214188}
-  - component: {fileID: 54935454807345632}
   - component: {fileID: 114881393498421952}
   - component: {fileID: 114375027340726576}
   - component: {fileID: 114190209994873176}
   - component: {fileID: 114552618223151266}
   - component: {fileID: 114060031329065366}
+  - component: {fileID: 114721256995307176}
+  - component: {fileID: 114293757352422818}
   m_Layer: 8
   m_Name: Person
   m_TagString: Friendly
@@ -445,7 +445,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1681525702544718}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalPosition: {x: 17.184399, y: 30.456875, z: 22.6051}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4996932854573606}
@@ -893,21 +893,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1232106741893080}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!54 &54935454807345632
-Rigidbody:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681525702544718}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 94
-  m_CollisionDetection: 0
 --- !u!65 &65041646076867346
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -992,7 +977,6 @@ MonoBehaviour:
   mouseSensX: 10
   mouseSensY: 10
   scopedSens: 5
-  player: {fileID: 1681525702544718}
   cam: {fileID: 20053072944105618}
   rotationX: 0
   rotationY: 0
@@ -1007,6 +991,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32fef95742decb649a7f2c34e6d1c736, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114293757352422818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681525702544718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.033333335
+  m_SyncRotationAxis: 7
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 79.09
+  m_InterpolateMovement: 1
 --- !u!114 &114375027340726576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1047,13 +1052,12 @@ MonoBehaviour:
   minRecoil: 0.1
   maxRecoil: 0.1
   cameraShakeIntensity: 1
-  cameraShakeAmount: 100
+  cameraShakeAmount: 1
   spread: 0
   originalCooldown: 0
   amount: 1
   useCooldown: 0
   semiAuto: 0
-  bullet: {fileID: 1204802993240422, guid: f94a5edeadea4ab4bb9d0a9a94fed9ac, type: 2}
   particleSystemArray:
   - {fileID: 198999343736923284}
   mainCamera: {fileID: 20053072944105618}
@@ -1061,6 +1065,20 @@ MonoBehaviour:
   emChamber: {fileID: 1232106741893080}
   crosshair: {fileID: 0}
   scoped: 0
+--- !u!114 &114721256995307176
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1681525702544718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eea4c78ad05eb114c80075dd350a665d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defCam: {fileID: 20053072944105618}
+  scopeCam: {fileID: 20545887335067240}
+  scopeCams: []
 --- !u!114 &114881393498421952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1107,19 +1125,6 @@ Behaviour:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1399978838041326}
   m_Enabled: 1
---- !u!136 &136010177358013478
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1681525702544718}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198999343736923284
 ParticleSystem:
   m_ObjectHideFlags: 1

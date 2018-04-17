@@ -18,6 +18,7 @@ public class Gunner : MonoBehaviour {
     // Update is called once per frame
     void Update()
     {
+        transform.localPosition = Vector3.zero ;
         if (!foundCar)
         {
             car = GameObject.Find("Car(Clone)");

@@ -1,6 +1,4 @@
-﻿
-
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -35,15 +33,6 @@ public class CarController : MonoBehaviour
         if(com != null){
             rb.centerOfMass = com.transform.localPosition;
         }
-    }
-
-    public void VisualizeWheel(Wheel wheel)
-    {
-        Quaternion rotation;
-        Vector3 position;
-        wheel.collider.GetWorldPose(out position, out rotation);
-        wheel.mesh.transform.position = position;
-        wheel.mesh.transform.rotation = rotation;
     }
 
     public void FixedUpdate()
@@ -81,7 +70,15 @@ public class CarController : MonoBehaviour
 
             VisualizeWheel(wheel);
         }
+    }
 
+    public void VisualizeWheel(Wheel wheel)
+    {
+        Quaternion rotation;
+        Vector3 position;
+        wheel.collider.GetWorldPose(out position, out rotation);
+        wheel.mesh.transform.position = position;
+        wheel.mesh.transform.rotation = rotation;
     }
 
     void DoRollBar(WheelCollider WheelL, WheelCollider WheelR) {
@@ -126,5 +123,8 @@ public class CarController : MonoBehaviour
 
     }
 
+    void DestroyTire(Wheel wheel){
+        Debug.Log("Destroy wheel");
+    }
 
 }
