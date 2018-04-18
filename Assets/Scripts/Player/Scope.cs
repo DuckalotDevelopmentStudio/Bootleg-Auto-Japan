@@ -18,13 +18,13 @@ public class Scope : MonoBehaviour {
 
     public void ScopeIn() //Enables camera on Scope
     {
-        scopeCam.enabled = true;
+        scopeCams[0/*To be changed from hard code*/].enabled = true;
         defCam.enabled = false;
     }
 
     public void ScopeOut() //Disables camera on scope
     {
-        scopeCam.enabled = false;
+        scopeCams[0].enabled = false;
         defCam.enabled = true;
     }
 

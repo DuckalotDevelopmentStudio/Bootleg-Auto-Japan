@@ -47,10 +47,10 @@ public class GunController : MonoBehaviour
     void Start()
     {
         scope = gameObject.GetComponent<Scope>();//Acheive scope script
-        cameraController = GetComponent<CameraController>(); //Getting CameraController
+        cameraController = mainCamera.GetComponent<CameraController>(); //Getting CameraController
         cooldown = originalCooldown;
         ammo = originalAmmo;
-        //ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
+        ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
     }
 
     // Update is called once per frame
@@ -58,11 +58,11 @@ public class GunController : MonoBehaviour
     {
         if (scoped)
         {
-            //crosshair.enabled = false;
+            crosshair.enabled = false;
         }
         else
         {
-            //crosshair.enabled = true;
+            crosshair.enabled = true;
         }
         ScopeCheck(); //Checking for scope
         cooldown -= Time.deltaTime;
@@ -107,7 +107,7 @@ public class GunController : MonoBehaviour
 
     void ScopeCheck() //Go to scope script for more details
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             scope.ScopeIn();
             scoped = true;
@@ -141,14 +141,14 @@ public class GunController : MonoBehaviour
         if (reloading)
         {
             reloadTimer -= Time.deltaTime;
-            //ammoText.text = "Reloading...";
+            ammoText.text = "Reloading...";
         }
         if (reloadTimer <= 0)
         {
             reloadTimer = 1f;
             reloading = false;
             ammo = originalAmmo;        //Reset everything
-            //ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
+            ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
         }
     }
     public void Shoot()
@@ -159,7 +159,7 @@ public class GunController : MonoBehaviour
         cameraController.rotationX += Random.Range(-minRecoil, minRecoil);
         mainCamera.transform.eulerAngles += new Vector3(0, 0, Random.Range(-cameraShakeAmount, cameraShakeAmount) * cameraShakeIntensity); //Camera shake, set intensity to 0
 
-        //ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
+        ammoText.text = ammo.ToString() + " / " + originalAmmo.ToString();
         cooldown = originalCooldown;
         particleSystemArray[0].Play();
     }

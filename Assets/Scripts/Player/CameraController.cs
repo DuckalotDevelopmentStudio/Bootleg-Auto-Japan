@@ -22,37 +22,28 @@ public class CameraController : MonoBehaviour {
     public float rotationX = 0;
     [HideInInspector]
     public float rotationY = 0;
-    bool gunControler;
 
     private void Start()
     {
         player = GameObject.Find("Person");
+        mouse = GameObject.Find("Mouse");
         gunController = GameObject.Find("Gun").GetComponent<GunController>();
-        if (gunController == null)
-        {
-            gunControler = false;
-        } else
-        {
-            gunControler = true;
-        }
     }
     // Update is called once per frame
     void Update ()
     {
-                rotationX += Input.GetAxis("Mouse X") * mouseSensX;
-                rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
-            
-        if(gunControler)
+        if (gunController != null)
         {
-            if (gunController.scoped)
+            if (gunController.scoped == false)
             {
                 rotationX += Input.GetAxis("Mouse X") * scopedSens;
                 rotationY -= Input.GetAxis("Mouse Y") * scopedSens;
             }
-            
         }
+            rotationX += Input.GetAxis("Mouse X") * mouseSensX;
+            rotationY -= Input.GetAxis("Mouse Y") * mouseSensY;
+        
         rotationY = Mathf.Clamp(rotationY, -60, 60);
-        cam.gameObject.transform.localRotation = Quaternion.Euler(cam.gameObject.transform.localRotation.x,rotationX, transform.localRotation.z);
-        gameObject.transform.localRotation = Quaternion.Euler(rotationY, transform.localRotation.y, transform.localRotation.z);
+        cam.gameObject.transform.localRotation = Quaternion.Euler(rotationY,rotationX, transform.localRotation.z);
     }
 }

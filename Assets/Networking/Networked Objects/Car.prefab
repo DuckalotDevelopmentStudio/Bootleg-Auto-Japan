@@ -141,8 +141,8 @@ GameObject:
   - component: {fileID: 114479930792029866}
   - component: {fileID: 114351220274404094}
   - component: {fileID: 114138117571282560}
-  - component: {fileID: 114773199925274786}
   - component: {fileID: 114039701751817858}
+  - component: {fileID: 114641876192170552}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -1620,7 +1620,7 @@ MonoBehaviour:
     i15: 153
   m_ServerOnly: 0
   m_LocalPlayerAuthority: 1
---- !u!114 &114773199925274786
+--- !u!114 &114641876192170552
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
