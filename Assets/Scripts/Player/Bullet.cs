@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class Bullet : MonoBehaviour {
 
@@ -24,6 +25,11 @@ public class Bullet : MonoBehaviour {
     private void OnCollisionEnter(Collision collision) //Checks for collison
     {
         DestroyObject(gameObject);
+        if(collision.gameObject.tag == "Enemy")
+        {
+            NetworkServer.Destroy(collision.gameObject);
+        }
     }
+
 }
 
